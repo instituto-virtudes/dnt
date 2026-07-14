@@ -1,202 +1,194 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
+<html lang="pt-BR"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exercícios de Neuroplasticidade da Virtologia</title>
+<title>Neuroplasticidade aplicada à terapia — desenvolver virtudes no córtex pré-frontal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#070b16;--bg2:#0b1222;
-  --panel:rgba(255,255,255,.035);--panel-brd:rgba(120,200,255,.12);
-  --cyan:#2fe6e0;--teal:#1bc6d6;--purple:#9a6bff;--pink:#c061f0;
-  --text:#e9eef9;--muted:#97a6c2;
+  --bg:#060912;--bg2:#0a1120;
+  --panel:rgba(255,255,255,.035);--panel-brd:rgba(120,200,255,.14);
+  --cyan:#2fe6e0;--teal:#28c8d6;--purple:#9a6bff;--pink:#c061f0;
+  --text:#e9eef9;--muted:#93a4c2;
   --serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;
+  --primitive:#ff7a6b;--primitive2:#ff9d5c;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .np{color:var(--cyan);font-weight:600}
 
 .bg-fx{position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(1200px 700px at 75% -5%, rgba(47,230,224,.10), transparent 60%),
-  radial-gradient(1000px 800px at 10% 20%, rgba(154,107,255,.10), transparent 60%),
-  radial-gradient(1000px 900px at 90% 100%, rgba(192,97,240,.07), transparent 55%),
-  linear-gradient(180deg,#070b16,#0a1020 50%,#070b16)}
-.bg-fx:after{content:"";position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+  radial-gradient(1200px 700px at 78% -5%, rgba(47,230,224,.10), transparent 60%),
+  radial-gradient(1000px 800px at 8% 18%, rgba(154,107,255,.11), transparent 60%),
+  radial-gradient(1000px 900px at 92% 100%, rgba(192,97,240,.06), transparent 55%),
+  linear-gradient(180deg,#060912,#0a1020 50%,#060912)}
 
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-section{position:relative;padding:84px 0}
-.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);opacity:.9;margin-bottom:14px}
-h1,h2,h3{font-family:var(--serif);line-height:1.12;font-weight:700;text-wrap:balance}
-p{text-wrap:pretty;color:#d3ddf0}
-.muted{color:var(--muted)}
-.kicker{font-family:var(--sans);font-weight:700;font-size:1.06rem;color:#fff;margin:26px 0 6px;letter-spacing:-.01em}
-.lead{font-size:1.16rem;color:#c8d4ea}
-.grad{background:linear-gradient(100deg,var(--cyan),var(--purple) 70%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.narrow{max-width:820px}
+section{position:relative;padding:74px 0}
+@media(max-width:760px){section{padding:48px 0}}
 
-.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;font-size:1.02rem;color:#04121a;background:linear-gradient(100deg,var(--cyan),#54f0d6);padding:17px 30px;border-radius:14px;border:0;cursor:pointer;letter-spacing:.01em;box-shadow:0 0 0 1px rgba(47,230,224,.35),0 14px 40px -10px rgba(47,230,224,.55);transition:transform .18s ease, box-shadow .18s ease;text-align:center}
-.btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(47,230,224,.5),0 20px 55px -10px rgba(47,230,224,.7)}
-.btn.ghost{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px rgba(150,200,255,.25)}
+.eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:var(--cyan);opacity:.92;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.eyebrow.c{justify-content:center}
+h1,h2,h3{font-family:var(--serif);line-height:1.1;font-weight:700;text-wrap:balance;letter-spacing:-.01em}
+
+.q{font-family:var(--serif);font-weight:700;font-size:clamp(1.7rem,4.6vw,3rem);line-height:1.08;color:#fff}
+.grad{background:linear-gradient(100deg,var(--cyan),var(--purple) 75%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.big{font-family:var(--serif);font-weight:700;font-size:clamp(1.5rem,3.8vw,2.4rem);line-height:1.15;color:#fff;margin:32px 0 8px;text-wrap:balance}
+.big .np{color:var(--cyan)}
+.lead{font-size:clamp(1.05rem,2vw,1.24rem);color:#c9d5ea;margin-top:16px}
+p{color:#cdd8ee;margin-top:14px;text-wrap:pretty}
+.small{font-size:.96rem;color:var(--muted)}
+
+ul.b{list-style:none;margin:20px 0 0;display:grid;gap:12px}
+ul.b li{position:relative;padding-left:30px;color:#d4deef;font-size:1.02rem}
+ul.b li:before{content:"";position:absolute;left:4px;top:.55em;width:9px;height:9px;border-radius:50%;background:linear-gradient(120deg,var(--cyan),var(--purple));box-shadow:0 0 10px rgba(47,230,224,.6)}
+ul.b.tight li{font-size:.98rem}
+ul.b.two{grid-template-columns:1fr 1fr}
+@media(max-width:640px){ul.b.two{grid-template-columns:1fr}}
+
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.tag{font-family:var(--mono);font-size:.82rem;color:#dbe7ff;background:rgba(47,230,224,.07);border:1px solid rgba(47,230,224,.22);padding:9px 14px;border-radius:100px}
+.tag.warm{color:#ffd9cf;background:rgba(255,122,107,.08);border-color:rgba(255,122,107,.28)}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:700;font-size:1.02rem;color:#04121a;background:linear-gradient(100deg,var(--cyan),#54f0d6);padding:17px 30px;border-radius:13px;cursor:pointer;box-shadow:0 0 0 1px rgba(47,230,224,.35),0 16px 44px -12px rgba(47,230,224,.6);transition:transform .18s,box-shadow .18s;text-align:center}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(47,230,224,.5),0 22px 60px -12px rgba(47,230,224,.75)}
+.btn.ghost{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px rgba(150,200,255,.28)}
 .btn.ghost:hover{box-shadow:inset 0 0 0 1px rgba(47,230,224,.6)}
-.micro{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-top:14px;letter-spacing:.02em}
+.micro{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-top:16px}
 
-nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(7,11,22,.6);border-bottom:1px solid rgba(120,200,255,.08)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-family:var(--serif);font-weight:700;font-size:1.15rem;letter-spacing:.02em}
-.brand small{font-family:var(--mono);font-size:.62rem;letter-spacing:.25em;color:var(--cyan);display:block;text-transform:uppercase;font-weight:500}
-nav .cta-mini{font-size:.9rem;padding:10px 18px}
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(6,9,18,.62);border-bottom:1px solid rgba(120,200,255,.08)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{font-family:var(--serif);font-weight:700;font-size:1.1rem}
+.brand small{font-family:var(--mono);font-size:.6rem;letter-spacing:.24em;color:var(--cyan);display:block;text-transform:uppercase;font-weight:500}
+nav .cta-mini{font-size:.86rem;padding:10px 16px}
 
-.slot{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--panel-brd);background:radial-gradient(120% 120% at 70% 20%, rgba(47,230,224,.16), transparent 55%),radial-gradient(120% 120% at 20% 90%, rgba(154,107,255,.18), transparent 55%),linear-gradient(160deg,#0c1426,#0a0f1e);min-height:300px;display:flex;align-items:center;justify-content:center;text-align:center}
-.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
-.slot .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#7f93b5;border:1px dashed rgba(127,147,181,.4);padding:9px 14px;border-radius:8px;max-width:80%;position:relative;z-index:0}
-
-.hero{padding-top:54px;padding-bottom:60px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
-.hero h1{font-size:clamp(2rem,5.2vw,3.5rem)}
-.hero .sub{font-family:var(--serif);font-style:normal;font-weight:500;font-size:clamp(1.12rem,2.4vw,1.5rem);color:#ffffff;margin-top:20px;line-height:1.4}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:26px}
-.hero-visual{position:relative;min-height:420px}
-.chip{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:#cfe9ff;background:rgba(47,230,224,.08);border:1px solid rgba(47,230,224,.25);padding:8px 14px;border-radius:100px}
+.hero{padding-top:60px;padding-bottom:34px}
+.hero .q{font-size:clamp(2rem,5.4vw,3.4rem)}
+.hero .sub{font-family:var(--serif);font-weight:500;font-size:clamp(1.15rem,2.5vw,1.55rem);color:#fff;margin-top:20px;line-height:1.35}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;align-items:center}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
 
-.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:46px;align-items:center}
-.two.rev .col-img{order:2}
+/* sequência de etapas */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.steps.s4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:760px){.steps,.steps.s4{grid-template-columns:1fr}}
+.step2{background:var(--panel);border:1px solid var(--panel-brd);border-radius:14px;padding:20px}
+.step2.hl{border-color:rgba(47,230,224,.34)}
+.step2 .sl{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.step2 .sn{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--cyan);display:inline-flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.8rem;color:#fff;flex:none}
+.step2 p{margin:0;color:#dce6f6;font-size:.96rem}
 
-.painlist{list-style:none;display:grid;gap:18px;margin-top:8px}
-.painlist .kicker{margin:0 0 4px}
-.painlist p{margin:0}
-.pull{border-left:3px solid var(--cyan);padding:16px 22px;margin-top:30px;background:rgba(47,230,224,.05);border-radius:0 12px 12px 0;font-family:var(--serif);font-style:normal;font-size:1.18rem;color:#dff6f5}
+.card{background:var(--panel);border:1px solid var(--panel-brd);border-radius:18px;padding:26px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
 
-.benefits{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
-.bcard{background:var(--panel);border:1px solid var(--panel-brd);border-radius:16px;padding:22px}
-.bcard h4{font-family:var(--sans);font-size:1.02rem;color:#fff;margin-bottom:6px;display:flex;gap:10px;align-items:flex-start}
-.bcard p{font-size:.96rem;color:#b9c6df;margin:0}
-.bnum{font-family:var(--mono);color:var(--cyan);font-size:.9rem;flex:none}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;margin-top:30px}
+.vs .vcol{border-radius:20px;padding:26px;border:1px solid var(--panel-brd)}
+.vs .prim{background:linear-gradient(165deg,rgba(255,122,107,.10),rgba(255,122,107,.03));border-color:rgba(255,122,107,.3)}
+.vs .cort{background:linear-gradient(165deg,rgba(47,230,224,.10),rgba(154,107,255,.06));border-color:rgba(47,230,224,.32)}
+.vs .vhead{font-family:var(--serif);font-size:1.4rem;color:#fff;margin-bottom:6px}
+.vs .vsub{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
+.vs .prim .vsub{color:var(--primitive)}
+.vs .cort .vsub{color:var(--cyan)}
+.vs .mid{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;color:var(--muted);writing-mode:vertical-rl;text-orientation:mixed}
+.vs ul.b li:before{background:linear-gradient(120deg,var(--cyan),var(--purple))}
+.vs .prim ul.b li:before{background:linear-gradient(120deg,var(--primitive),var(--primitive2));box-shadow:0 0 10px rgba(255,122,107,.5)}
+@media(max-width:820px){.vs{grid-template-columns:1fr}.vs .mid{writing-mode:horizontal-tb;padding:6px 0}}
 
-.tgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:36px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.compare .col{border-radius:18px;padding:26px;border:1px solid var(--panel-brd);background:var(--panel)}
+.compare .col.hl{border-color:rgba(47,230,224,.4);background:linear-gradient(165deg,rgba(47,230,224,.08),rgba(154,107,255,.05))}
+.compare h4{font-family:var(--mono);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:4px}
+.compare .csub{font-family:var(--serif);font-size:1.2rem;color:var(--cyan);margin-bottom:14px}
+.compare .col:not(.hl) .csub{color:#cbd6ec}
+@media(max-width:640px){.compare{grid-template-columns:1fr}}
+
+/* imagens do processo e do ciclo (inteiras, sem moldura, todas visíveis) */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px;align-items:start}
+.cyc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;align-items:start}
+@media(max-width:900px){.proc{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.proc,.cyc{grid-template-columns:1fr}}
+.proc img,.cyc img{width:100%;height:auto;display:block;border-radius:10px}
+.carwrap{margin-top:24px}
+.cindic{display:none}
+
+.quoteband{background:linear-gradient(165deg,rgba(154,107,255,.14),rgba(47,230,224,.06));border-top:1px solid var(--panel-brd);border-bottom:1px solid var(--panel-brd)}
+.quoteband .qq{font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(1.5rem,3.6vw,2.3rem);color:#fff;text-align:center;line-height:1.25;max-width:900px;margin:0 auto}
+.quoteband .qq .np{font-style:normal}
+.quoteband .qauthor{text-align:center;font-family:var(--mono);font-size:.82rem;letter-spacing:.08em;color:var(--cyan);margin-top:20px}
+
+.tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
+@media(max-width:820px){.tgrid{grid-template-columns:1fr}}
 .tcard{background:var(--panel);border:1px solid var(--panel-brd);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:14px}
 .vid{position:relative;aspect-ratio:16/9;border-radius:12px;background:#0a0f1e center/cover no-repeat;cursor:pointer;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--panel-brd)}
 .vid:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,11,22,.05),rgba(7,11,22,.45))}
-.vid .pbtn{position:relative;width:58px;height:58px;border-radius:50%;background:rgba(47,230,224,.92);color:#04121a;display:flex;align-items:center;justify-content:center;font-size:1.25rem;box-shadow:0 8px 30px rgba(0,0,0,.45);transition:transform .2s}
+.vid .pbtn{position:relative;width:56px;height:56px;border-radius:50%;background:rgba(47,230,224,.92);color:#04121a;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 8px 30px rgba(0,0,0,.45);transition:transform .2s}
 .vid:hover .pbtn{transform:scale(1.1)}
-.vid.on{cursor:default}
-.vid.on:before,.vid.on .pbtn{display:none}
+.vid.on{cursor:default}.vid.on:before,.vid.on .pbtn{display:none}
 .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.tcard .quote{font-family:var(--sans);font-style:italic;font-size:1.05rem;font-weight:500;color:#eaf2ff;line-height:1.45}
+.tcard .quote{font-style:italic;font-weight:500;font-size:1.04rem;color:#eaf2ff;line-height:1.45}
 .tcard .ctx{font-size:.9rem;color:#aab8d4;margin:0}
-.tcard .who{font-weight:700;color:#fff;font-size:.96rem}
-.tcard .role{font-family:var(--mono);font-size:.72rem;color:var(--cyan);letter-spacing:.05em}
+.tcard .who{font-weight:700;color:#fff;font-size:.95rem}
+.tcard .role{font-family:var(--mono);font-size:.7rem;color:var(--cyan);letter-spacing:.05em}
+.tmore{display:none;margin:22px auto 0;font-family:var(--sans);font-weight:700;font-size:.98rem;color:var(--cyan);background:transparent;border:1px solid rgba(47,230,224,.4);border-radius:100px;padding:12px 24px;cursor:pointer}
+@media(max-width:820px){.tgrid.collapsed .tcard.more{display:none}.tmore{display:block}}
 
-.authrow{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
-.badge{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--panel-brd);border-radius:14px;padding:16px 20px;flex:1 1 200px}
-.badge .b-n{font-family:var(--serif);font-size:1.5rem;color:var(--cyan);line-height:1}
-.badge .b-t{font-size:.86rem;color:#b9c6df}
-.eduardo-photo{border-radius:18px;overflow:hidden;border:1px solid var(--panel-brd);min-height:380px;position:relative;background:linear-gradient(160deg,#0c1426,#0a0f1e)}
-.eduardo-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
-.eduardo-cap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px 18px;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:#dceaff;background:linear-gradient(0deg,rgba(7,11,22,.85),transparent)}
-
-.offer{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px;align-items:stretch}
-.plan{background:linear-gradient(165deg,#0e1730,#0a1020);border:1px solid var(--panel-brd);border-radius:20px;padding:32px;display:flex;flex-direction:column;position:relative}
-.plan.feat{border-color:rgba(47,230,224,.45);box-shadow:0 0 0 1px rgba(47,230,224,.25),0 30px 80px -30px rgba(47,230,224,.4)}
-.plan .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;background:linear-gradient(100deg,var(--cyan),#5ef0d8);color:#04121a;padding:6px 16px;border-radius:100px;font-weight:700;white-space:nowrap}
-.plan .pname{font-family:var(--serif);font-size:1.5rem;margin-bottom:6px}
-.plan .price{font-family:var(--serif);font-size:2.8rem;color:#fff;margin:6px 0 2px}
+.offer{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px;align-items:stretch}
+@media(max-width:820px){.offer{grid-template-columns:1fr}}
+.plan{background:linear-gradient(165deg,#0d1730,#0a1020);border:1px solid var(--panel-brd);border-radius:20px;padding:32px;display:flex;flex-direction:column;position:relative}
+.plan.feat{border-color:rgba(47,230,224,.45);box-shadow:0 0 0 1px rgba(47,230,224,.22),0 30px 80px -34px rgba(47,230,224,.4)}
+.plan .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;background:linear-gradient(100deg,var(--cyan),#5ef0d8);color:#04121a;padding:6px 16px;border-radius:100px;font-weight:700;white-space:nowrap}
+.plan .pname{font-family:var(--serif);font-size:1.4rem;margin-bottom:6px}
+.plan .price{font-family:var(--serif);font-size:2.6rem;color:#fff;margin:6px 0 2px}
 .plan .price small{font-size:1rem;color:var(--muted);font-family:var(--sans)}
 .plan ul{list-style:none;display:grid;gap:12px;margin:20px 0 26px}
 .plan li{display:flex;gap:11px;font-size:.98rem;color:#cdd9ef;align-items:flex-start}
-.plan li .ck{color:var(--cyan);flex:none;margin-top:3px}
+.plan li .ck{color:var(--cyan);flex:none;margin-top:2px}
 .plan .btn{margin-top:auto;justify-content:center}
 
-.bookrow{margin-top:30px;background:var(--panel);border:1px solid var(--panel-brd);border-radius:20px;padding:30px}
-.book-head{display:flex;gap:26px;align-items:center}
-.bookcover{flex:none;width:150px;border-radius:10px;box-shadow:0 24px 60px -20px rgba(0,0,0,.7),0 0 0 1px rgba(120,200,255,.1)}
-.bookcover-fallback{flex:none;width:150px;aspect-ratio:3/4;border-radius:10px;background:radial-gradient(120% 120% at 60% 20%,rgba(154,107,255,.25),transparent 55%),linear-gradient(160deg,#1a1408,#0c1020);display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--panel-brd)}
-.bookcover-fallback span{font-family:var(--mono);font-size:.64rem;color:#7f93b5;padding:8px}
-.book-head h3{font-size:clamp(1.5rem,3vw,2rem)}
-.book-tag{font-family:var(--mono);font-size:.74rem;color:var(--cyan);display:block;margin-top:8px;letter-spacing:.1em}
-.book-desc{margin-top:20px;font-size:1.08rem}
+.guar{background:linear-gradient(165deg,rgba(47,230,224,.07),rgba(154,107,255,.05));border:1px solid var(--panel-brd);border-radius:22px;padding:36px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-top:30px}
+.shield{width:86px;height:86px;flex:none}
+@media(max-width:640px){.guar{grid-template-columns:1fr;text-align:center;justify-items:center}}
+
+/* autoridade */
+.author{display:grid;grid-template-columns:340px 1fr;grid-template-areas:"photo head" "photo body";gap:16px 36px;align-items:start;margin-top:32px}
+.a-head{grid-area:head}
+.a-photo{grid-area:photo}
+.a-body{grid-area:body}
+.a-photo img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid var(--panel-brd)}
+.a-body .big{font-size:1.35rem;margin:6px 0 6px}
+@media(max-width:820px){.author{grid-template-columns:1fr;grid-template-areas:"head" "photo" "body";gap:16px}.a-photo{max-width:360px}}
 
 .qa details{border-bottom:1px solid rgba(120,200,255,.1);padding:6px 0}
-.qa summary{cursor:pointer;list-style:none;padding:20px 44px 20px 4px;font-weight:600;font-size:1.06rem;color:#fff;position:relative}
+.qa summary{cursor:pointer;list-style:none;padding:20px 44px 20px 4px;font-weight:600;font-size:1.05rem;color:#fff;position:relative}
 .qa summary::-webkit-details-marker{display:none}
 .qa summary:after{content:"+";position:absolute;right:8px;top:16px;font-size:1.5rem;color:var(--cyan);transition:.2s}
 .qa details[open] summary:after{transform:rotate(45deg)}
-.qa .ans{padding:0 4px 22px;color:#bcc9e2;font-size:1rem}
+.qa .ans{padding:0 4px 22px;color:#bcc9e2;font-size:1rem;line-height:1.6}
 
-.guar{background:linear-gradient(165deg,rgba(47,230,224,.07),rgba(154,107,255,.05));border:1px solid var(--panel-brd);border-radius:22px;padding:40px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;margin-top:10px}
-.shield{width:96px;height:96px;flex:none}
+.final{text-align:center}
+.final-card{border-radius:26px;padding:56px 32px;background:radial-gradient(120% 140% at 50% 0%,rgba(47,230,224,.15),transparent 60%),linear-gradient(165deg,#0e1730,#080d1b);border:1px solid rgba(47,230,224,.3);box-shadow:0 40px 120px -44px rgba(47,230,224,.4)}
+.final-card .big{margin-top:0}
 
-.final{text-align:center;padding:90px 0}
-.final-card{position:relative;border-radius:26px;padding:56px 34px;overflow:hidden;background:radial-gradient(120% 140% at 50% 0%,rgba(47,230,224,.16),transparent 60%),linear-gradient(165deg,#0e1730,#090e1c);border:1px solid rgba(47,230,224,.3);box-shadow:0 40px 120px -40px rgba(47,230,224,.4)}
-.final h2{font-size:clamp(1.7rem,4.4vw,2.9rem)}
-.ps{max-width:760px;margin:46px auto 0;font-size:1.02rem;color:#bcc9e2;text-align:left;background:var(--panel);border:1px solid var(--panel-brd);border-radius:16px;padding:26px}
-.ps b{color:#fff}
+footer{padding:48px 0;border-top:1px solid rgba(120,200,255,.08);text-align:center;color:var(--muted);font-size:.85rem}
 
-footer{padding:50px 0;border-top:1px solid rgba(120,200,255,.08);text-align:center;color:var(--muted);font-size:.86rem}
-footer .brand{justify-content:center;margin-bottom:10px;display:inline-block}
-
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
 .reveal.in{opacity:1;transform:none}
 
-/* story */
-.story-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--panel-brd);border-radius:22px;overflow:hidden;background:linear-gradient(165deg,#0e1730,#0a1020)}
-.story-card .s-img{position:relative;min-height:360px;background:linear-gradient(160deg,#0c1426,#0a0f1e)}
-.story-card .s-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.story-card .s-body{padding:44px 40px}
-.story-card .s-quote{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.25;color:#fff}
-.story-card .s-quote .np{color:var(--cyan)}
-.story-card p{margin-top:18px;color:#c4d2ec}
-.story-card .s-who{margin-top:20px;font-weight:700;color:#fff}
-.story-card .s-role{font-family:var(--mono);font-size:.74rem;color:var(--cyan);letter-spacing:.05em}
-
-/* urgência */
-.urg{background:linear-gradient(165deg,rgba(154,107,255,.08),rgba(47,230,224,.05));border:1px solid var(--panel-brd);border-radius:22px;padding:40px}
-.urg .kicker{margin-top:22px}
-.urg .kicker:first-of-type{margin-top:8px}
-
-/* social strip no CTA final */
-.cta-quote{max-width:560px;margin:0 auto 8px;font-family:var(--sans);font-style:italic;color:#bfe9ea;font-size:1.02rem}
-.cta-quote b{color:#fff;font-style:normal;font-weight:600}
-
-/* sticky CTA mobile */
 .sticky-cta{display:none}
 @media(max-width:760px){
   .sticky-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:12px;align-items:center;justify-content:space-between;
-    padding:11px 16px calc(11px + env(safe-area-inset-bottom));backdrop-filter:blur(12px);
-    background:rgba(7,11,22,.86);border-top:1px solid rgba(47,230,224,.2)}
-  .sticky-cta .sc-price{font-family:var(--mono);font-size:.78rem;color:#cfe9ff;line-height:1.2}
-  .sticky-cta .sc-price b{display:block;font-family:var(--serif);font-size:1.15rem;color:#fff}
-  .sticky-cta .btn{padding:13px 20px;font-size:.95rem;flex:none}
-  body{padding-bottom:74px}
-}
-
-@media(max-width:880px){
-  section{padding:54px 0}
-  .hero-grid,.two,.offer,.benefits,.tgrid,.guar{grid-template-columns:1fr}
-  .two.rev .col-img{order:0}
-  .guar{justify-items:center;text-align:center;padding:30px 24px}
-  .hero-visual{min-height:260px;order:2}
-  .hero-cta .btn{width:100%}
-  .bookrow{padding:22px}
-}
-@media(max-width:560px){
-  body{font-size:16px}
-  .wrap{padding:0 16px}
-  section{padding:46px 0}
-  .hero{padding-top:34px}
-  .benefits{grid-template-columns:1fr}
-  .book-head{flex-direction:column;align-items:flex-start;gap:18px}
-  .bookcover,.bookcover-fallback{width:130px}
-  .plan{padding:26px 22px}
-  .plan .price{font-size:2.4rem}
-  nav .cta-mini{font-size:.78rem;padding:9px 13px}
-  .brand{font-size:1rem}
-  .final-card{padding:40px 22px}
+    padding:11px 16px calc(11px + env(safe-area-inset-bottom));backdrop-filter:blur(12px);background:rgba(6,9,18,.88);border-top:1px solid rgba(47,230,224,.2)}
+  .sticky-cta .sc-price{font-family:var(--mono);font-size:.76rem;color:#cfe9ff;line-height:1.2}
+  .sticky-cta .sc-price b{display:block;font-family:var(--serif);font-size:1.1rem;color:#fff}
+  .sticky-cta .btn{padding:13px 18px;font-size:.92rem;flex:none}
+  body{padding-bottom:72px}
 }
 </style>
 <!-- Meta Pixel Code -->
@@ -223,319 +215,388 @@ src="https://www.facebook.com/tr?id=386437925348155&ev=PageView&noscript=1"/></n
 <nav>
   <div class="wrap">
     <div class="brand">Virtologia<small>Neuroplasticidade Aplicada</small></div>
-    <a href="#oferta" class="btn cta-mini">Acessar exercícios + aulas</a>
+    <a href="#aulas" class="btn cta-mini">Acessar as aulas</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero">
-  <div class="wrap hero-grid">
-    <div class="reveal in">
-      <span class="chip"><span class="dot"></span> Para quem atende pessoas</span>
-      <h1 style="margin-top:22px">Seu paciente <span class="np">entende</span> tudo sobre o problema dele. E continua no mesmo lugar.</h1>
-      <p class="sub"><b>O que falta não é mais consciência.</b> É uma forma de desenvolver as estruturas cerebrais que produzem <b>novos comportamentos</b>, usando <span class="np">exercícios de neuroplasticidade</span>.</p>
-      <div class="hero-cta">
-        <a href="#oferta" class="btn">Acessar exercícios + aulas</a>
-        <a href="#solucao" class="btn ghost">Entender como funciona</a>
-      </div>
-      <p class="micro">A partir de R$97 · Acesso imediato · Garantia de 7 dias · +3.000 terapeutas formados</p>
+  <div class="wrap narrow reveal in">
+    <div class="eyebrow"><span class="dot"></span> Neurociência aplicada à clínica</div>
+    <h1 class="q">Por que depender apenas da fala, se <span class="np">já é possível evoluir o cérebro</span> do paciente?</h1>
+    <p class="sub">Em 3 horas de aulas, conheça como orientar exercícios de neuroplasticidade para que o paciente continue desenvolvendo o cérebro em casa — e retorne às sessões com o córtex pré-frontal mais fortalecido e maior capacidade de aderir ao tratamento.</p>
+    <div class="big">Não é apenas o que o paciente entende durante a sessão. <span class="np">É o que o cérebro continua desenvolvendo depois dela.</span></div>
+    <div class="hero-cta">
+      <a href="#ciclo" class="btn">Ver como o tratamento continua fora da sessão</a>
+      <a href="#aulas" class="btn ghost">Acessar aulas</a>
     </div>
-    <div class="hero-visual reveal in">
-      <div class="slot" style="min-height:420px">
-        <img src="hero.jpg" alt="Cérebro com atividade neural" onerror="this.remove()">
-        <span class="tag">[ hero.jpg ]</span>
-      </div>
-    </div>
+    <p class="micro">3h de aulas · 33 exercícios de neuroplasticidade · Encontros ao vivo mensais</p>
   </div>
 </header>
 
-<!-- ABERTURA / PROPOSTA -->
-<section id="solucao" style="padding-bottom:40px">
-  <div class="wrap" style="max-width:800px">
-    <div class="reveal">
-      <div class="eyebrow">O ponto cego das terapias</div>
-      <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem)">Você sabe ONDE seu paciente está. Mas sabe COMO tirá-lo de lá?</h2>
-      <div class="kicker">Você enxerga o ponto A. Enxerga o ponto B. O problema mora no meio.</div>
-      <p>Você olha para o paciente e sabe exatamente onde ele está e onde precisa chegar. Enxergar isso nunca foi o difícil. O difícil é o caminho: como levá-lo de um ponto ao outro?</p>
-      <div class="kicker">É aqui que quase toda abordagem trava.</div>
-      <p>Insight não vira mudança. A pessoa "vira a chave", diz "agora eu entendi" e o sintoma continua firme. Tem gente em terapia há anos, com consciência total do próprio padrão, repetindo esse mesmo padrão todos os dias.</p>
-      <div class="kicker">A <span class="np">neuroplasticidade</span> ataca justamente esse ponto cego.</div>
-      <p>Em vez de passar meses remexendo na ferida, você desenvolve no cérebro uma competência que antes não existia. É o "como" que faltava, e ele funciona de dentro para fora.</p>
+<!-- O CICLO DA TRANSFORMAÇÃO (imagens logo após o hero) -->
+<section id="ciclo" style="padding-top:20px">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:780px;margin:0 auto">
+      <div class="eyebrow c">O ciclo da transformação</div>
+      <h2 class="q">O que acontece entre uma sessão e outra?</h2>
+      <p class="lead">A clínica dá direção. A prática em casa desenvolve o cérebro. A próxima sessão começa de um ponto mais avançado.</p>
+    </div>
+    <div class="carwrap reveal">
+      <div class="cyc car" id="cycCar">
+        <img src="ciclo-1.png" alt="Na sessão — a clínica dá direção: o terapeuta identifica o que precisa ser desenvolvido">
+        <img src="ciclo-2.png" alt="Em casa — a prática desenvolve o cérebro: é fora da sessão que o paciente reforça a mudança">
+        <img src="ciclo-3.png" alt="Na próxima sessão — o paciente volta diferente, com o córtex pré-frontal mais fortalecido">
+      </div>
+    </div>
+    <div class="wrap narrow reveal" style="padding:0;margin-top:30px">
+      <div class="big">Na sessão seguinte, o terapeuta não encontra apenas um paciente que pensou sobre o problema. <span class="np">Encontra um cérebro que já começou a desenvolver a capacidade que faltava.</span></div>
     </div>
   </div>
 </section>
 
-<!-- FAIXA SILHUETA (entre as seções) -->
-<div class="wrap reveal" style="padding:6px 22px 30px">
-  <div class="slot" style="min-height:clamp(200px,28vw,360px)">
-    <img src="silhueta.jpg" alt="Silhueta com cérebro luminoso" onerror="this.remove()">
-    <span class="tag">[ silhueta.jpg ]</span>
-  </div>
-</div>
-
-<!-- DOR -->
-<section>
-  <div class="wrap two rev">
+<!-- O PONTO CEGO -->
+<section id="mecanismo">
+  <div class="wrap narrow">
     <div class="reveal">
-      <div class="eyebrow">Não sei se você passa por isso, mas…</div>
-      <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem)">Esses são alguns dos desafios que este material ajudou nossos alunos a superar</h2>
-      <ul class="painlist">
-        <li><div class="kicker">A sessão terapêutica parecia mais sessão de desabafo.</div><p>A pessoa fala, fala, fala e a vida lá fora muda pouco. No fim, fica a sensação de que faltou algo acontecer de verdade.</p></li>
-        <li><div class="kicker">Entendia-se muito do problema… mas e a mudança prática?</div><p>Sabe onde o paciente está e onde precisa chegar, e fica a dúvida silenciosa de qual é o próximo passo concreto para movê-lo.</p></li>
-        <li><div class="kicker">Muito estudo, mas ainda havia a sensação de que faltava uma peça.</div><p>Faculdade, formações, curso atrás de curso. Acumulou teoria e ainda sente um vazio entre o que aprendeu e o resultado que gostaria de entregar.</p></li>
-        <li><div class="kicker">Especialmente para terapeutas recém formadas… insegurança para cobrar alto.</div><p>É difícil cobrar com firmeza quando você mesmo não tem certeza da velocidade do resultado que entrega.</p></li>
+      <div class="eyebrow">O ponto cego da clínica</div>
+      <h2 class="q">Por que o paciente entende durante a sessão — e volta a repetir quando chega em casa?</h2>
+      <p class="lead">Porque o que conta é a parte do cérebro que está no comando.</p>
+      <p>O paciente pode saber de onde vem a sua dor, reconhecer o trauma, nomear o comportamento — e ainda assim continuar repetindo.</p>
+
+      <div class="big">Comportamentos disfuncionais não vêm da parte racional do cérebro.</div>
+      <p>Eles nascem em estruturas primitivas, ligadas à sobrevivência, defesa, ameaça e recompensa. Quando essas áreas comandam, o paciente responde pelo automático: faz o que sabe que não deveria e deixa de fazer o que sabe que deveria.</p>
+      <p><b>Não é falta de entendimento. É falta de estrutura cerebral suficiente para sustentar outra resposta.</b></p>
+    </div>
+
+    <div class="card reveal" style="margin-top:32px">
+      <p class="small" style="margin:0">A pergunta decisiva não é apenas:</p>
+      <div class="big" style="margin:8px 0 18px">"O que esse paciente sabe sobre si?"</div>
+      <p class="small" style="margin:0">A pergunta decisiva é:</p>
+      <div class="big grad" style="margin:8px 0 0">"Qual parte do cérebro está comandando esse paciente?"</div>
+    </div>
+
+    <div class="reveal">
+      <p style="margin-top:32px">Quando o córtex pré-frontal — a parte mais evoluída do cérebro — não está desenvolvido, ele não regula nem reorganiza as respostas primitivas. E o padrão se repete, mesmo com consciência, mesmo com insight.</p>
+      <div class="big">A chave não está apenas em entender o padrão. <span class="np">A chave está em evoluir o cérebro.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA REPETIDO -->
+<div class="wrap reveal" style="text-align:center;padding:6px 24px 0"><a href="#aulas" class="btn">Acessar aulas</a></div>
+
+<!-- ESQUEMA: PRIMITIVO x CÓRTEX -->
+<section style="padding-top:56px">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:760px;margin:0 auto">
+      <div class="eyebrow c">Duas partes, dois modos de responder</div>
+      <h2 class="q">Quando o cérebro primitivo comanda, o paciente não vive com liberdade real. Ele reage.</h2>
+    </div>
+    <div class="vs reveal">
+      <div class="vcol prim">
+        <div class="vhead">Cérebro primitivo</div>
+        <div class="vsub">reação · defesa · automático</div>
+        <ul class="b tight">
+          <li>defesa e ameaça</li>
+          <li>recompensa imediata</li>
+          <li>fuga e ataque</li>
+          <li>controle</li>
+          <li>apego e dependência</li>
+          <li>busca de validação</li>
+        </ul>
+      </div>
+      <div class="mid">evoluir →</div>
+      <div class="vcol cort">
+        <div class="vhead">Córtex pré-frontal</div>
+        <div class="vsub">escolha · regulação · maturidade</div>
+        <ul class="b tight">
+          <li>controle emocional</li>
+          <li>responsabilidade</li>
+          <li>empatia</li>
+          <li>aceitação da realidade</li>
+          <li>propósito</li>
+          <li>tomada de decisão</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap narrow reveal" style="padding:0;margin-top:26px">
+      <div class="big">O ponto central é simples: <span class="np">o sintoma é uma defesa do cérebro.</span></div>
+      <div class="tags">
+        <span class="tag warm">A rigidez é uma defesa</span>
+        <span class="tag warm">A agressividade é uma defesa</span>
+        <span class="tag warm">A dependência é uma defesa</span>
+        <span class="tag warm">O controle é uma defesa</span>
+        <span class="tag warm">A fuga é uma defesa</span>
+        <span class="tag warm">A repetição é uma defesa</span>
+      </div>
+      <div class="big">O tratamento avança quando o paciente deixa de apenas reconhecer a defesa e começa a desenvolver a virtude capaz de superá-la.</div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE SIGNIFICA EVOLUIR O CÉREBRO -->
+<section>
+  <div class="wrap narrow">
+    <div class="reveal">
+      <div class="eyebrow">A descoberta</div>
+      <h2 class="q">O que significa evoluir o cérebro?</h2>
+      <p class="lead">O que acontece quando uma virtude é desenvolvida por neuroplasticidade?</p>
+
+      <div class="big">Virtudes não são apenas valores morais. <span class="np">São capacidades treinadas no cérebro.</span></div>
+      <p>Com 23 anos de pesquisas e testes, a Virtologia descobriu que as virtudes são processadas e desenvolvidas como capacidades neuropsicológicas do córtex pré-frontal. É essa região que dá ao paciente:</p>
+      <ul class="b two">
+        <li>controle emocional;</li>
+        <li>responsabilidade;</li>
+        <li>empatia;</li>
+        <li>aceitação da realidade;</li>
+        <li>propósito;</li>
+        <li>tomada de decisão;</li>
+        <li>respostas menos impulsivas.</li>
       </ul>
-      <div class="pull">Não é falta de conhecimento seu. É falta de uma ferramenta que transforme a raiz de todo comportamento e sentimento - o cérebro.</div>
+
+      <div class="big">O paciente não precisa apenas tentar agir diferente. <span class="np">Ele passa a desenvolver neurologicamente a capacidade de agir diferente.</span></div>
+      <p>Com a repetição, o córtex pré-frontal se fortalece. O paciente passa a ter mais capacidade para:</p>
+      <ul class="b">
+        <li>perceber o impulso antes de agir;</li>
+        <li>interromper uma reação automática;</li>
+        <li>regular a emoção diante do gatilho;</li>
+        <li>aceitar aquilo que não pode controlar;</li>
+        <li>assumir responsabilidade pelo próprio comportamento;</li>
+        <li>colocar em prática o que compreendeu na terapia.</li>
+      </ul>
+      <div class="big">É assim que a consciência deixa de existir apenas como entendimento e começa a comandar o comportamento.</div>
     </div>
-    <div class="col-img reveal">
-      <div class="slot" style="min-height:420px"><img src="dor.jpg" alt="Pessoa com excesso de pensamentos" onerror="this.remove()"><span class="tag">[ dor.jpg ]</span></div>
+  </div>
+
+  <!-- 4 IMAGENS DO PROCESSO -->
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:760px;margin:36px auto 0">
+      <div class="eyebrow c">Durante os dias entre as sessões</div>
+      <h2 class="q" style="font-size:clamp(1.5rem,3.6vw,2.2rem)">O que acontece no cérebro enquanto o paciente está em casa?</h2>
+      <p class="lead">Cada repetição ativa diferentes formas de aprendizagem e fortalece a capacidade escolhida no atendimento.</p>
+      <div class="tags" style="justify-content:center">
+        <span class="tag">fala</span><span class="tag">escrita</span><span class="tag">visualização</span>
+        <span class="tag">reflexão</span><span class="tag">comportamento</span><span class="tag">repetição direcionada</span>
+      </div>
     </div>
+    <div class="carwrap reveal">
+      <div class="proc car" id="procCar">
+        <img src="processo-1.png" alt="Exercícios de neuroplasticidade — o paciente pratica exercícios direcionados">
+        <img src="processo-2.png" alt="Ativação de múltiplas áreas de aprendizagem — visual, fala, escrita, comportamental e reflexiva">
+        <img src="processo-3.png" alt="Repetição por 14 dias — o cérebro constrói novos caminhos neurais">
+        <img src="processo-4.png" alt="O cérebro sustenta respostas mais saudáveis — fortalecimento do córtex pré-frontal">
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;max-width:760px;margin:20px auto 0">O exercício não é uma reflexão solta nem uma tarefa genérica: ele combina diferentes formas de aprendizagem para que o cérebro pratique repetidamente uma capacidade específica.</p>
   </div>
 </section>
 
-<!-- SOLUÇÃO -->
-<section>
-  <div class="wrap">
-    <div class="reveal" style="text-align:center;max-width:760px;margin:0 auto 40px">
-      <div class="eyebrow" style="justify-content:center">Neuroplasticidade aplicada</div>
-      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem)">O que muda quando você trabalha o cérebro - e não só a consciência</h2>
-    </div>
-    <div class="two">
-      <div class="col-img reveal">
-        <div class="slot" style="min-height:400px"><img src="solucao.jpg" alt="Cérebro com sinais neurais" onerror="this.remove()"><span class="tag">[ solucao.jpg ]</span></div>
-      </div>
-      <div class="reveal">
-        <div class="kicker">A peça que faltava tem nome: <span class="np">neuroplasticidade</span> aplicada.</div>
-        <p>Em vez de manter o paciente preso ao passado, revivendo o trauma indefinidamente, você usa a própria plasticidade do cérebro para desenvolver uma competência nova, de forma intencional e direcionada.</p>
-        <div class="kicker">A diferença, na prática, é parar de só mexer na ferida.</div>
-        <p>Você não precisa reabrir a mesma dor toda semana. <b>Trabalha o cérebro, e a certa altura o paciente percebe: "isso já não me afeta como antes".</b> O padrão antigo deixa de se repetir - inclusive em casos que anos de terapia não resolveram.</p>
-        <div class="kicker">E tem algo que nenhuma outra abordagem te entrega.</div>
-        <p>Antes de intervir, a Virtologia pergunta: qual é o nível de desenvolvimento estrutural da personalidade dessa pessoa? Ou seja, qual a capacidade que o cérebro dela tem hoje para lidar com aquilo. Você para de aplicar técnica no escuro e passa a saber o que desenvolver, e em que ordem.</p>
-      </div>
-    </div>
-    <div class="reveal" style="margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
-      <div class="bcard"><h4>12 aulas · 3 horas</h4><p>O mecanismo e como conduzir cada exercício, sem enrolação.</p></div>
-      <div class="bcard"><h4>33 exercícios prontos</h4><p>Para usar com seus pacientes - e em você mesmo.</p></div>
-      <div class="bcard"><h4>Linguagem aplicável</h4><p>Simples e estruturada. Nada de meses de estudo antes de começar.</p></div>
-    </div>
-    <p class="pull" style="text-align:center;border:0;background:transparent;font-size:1.4rem;margin-top:24px">Aplicação → resultado. Aplicação → resultado.</p>
+<!-- CITAÇÃO KANDEL -->
+<section class="quoteband">
+  <div class="wrap reveal">
+    <div class="qq">"A plasticidade cerebral molda quem somos."</div>
+    <div class="qauthor">Eric Kandel · Prêmio Nobel de Fisiologia e Medicina</div>
   </div>
 </section>
 
-<!-- BENEFÍCIOS -->
+<!-- ESQUEMA: SESSÃO x ENTRE SESSÕES -->
 <section>
-  <div class="wrap">
+  <div class="wrap narrow">
+    <div class="reveal" style="text-align:center">
+      <div class="eyebrow c">Não é substituição. É uma nova camada.</div>
+      <h2 class="q">A sessão mostra o caminho. A prática desenvolve o cérebro para percorrê-lo.</h2>
+    </div>
+    <div class="compare reveal">
+      <div class="col">
+        <h4>Na sessão</h4>
+        <div class="csub">Fala · escuta · análise</div>
+        <ul class="b tight"><li>revela o padrão</li><li>nomeia o sofrimento</li><li>compreende a origem</li><li>identifica a defesa</li><li>dá direção ao tratamento</li></ul>
+      </div>
+      <div class="col hl">
+        <h4>Entre as sessões</h4>
+        <div class="csub">Neuroplasticidade virtológica</div>
+        <ul class="b tight"><li>transforma a orientação em prática</li><li>treina a virtude que está faltando</li><li>fortalece o córtex pré-frontal</li><li>reduz o comando das respostas primitivas</li><li>prepara o cérebro para aderir ao tratamento</li></ul>
+      </div>
+    </div>
     <div class="reveal">
-      <div class="eyebrow">No dia a dia do consultório</div>
-      <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem)">O que passa a acontecer no seu consultório</h2>
+      <div class="big" style="text-align:center">A fala mostra o que precisa mudar. <span class="np">A neuroplasticidade desenvolve no cérebro a capacidade de mudar.</span></div>
+      <p>Não é apenas acrescentar uma tarefa de casa ao atendimento: é transformar a virtude que falta em treinamento neurológico e acompanhar como essa capacidade aparece na vida do paciente.</p>
     </div>
-    <div class="benefits reveal">
-      <div class="bcard"><h4><span class="bnum">01</span>Você finalmente tem o "como"</h4><p>Para de só saber onde o paciente está e passa a saber como movê-lo.</p></div>
-      <div class="bcard"><h4><span class="bnum">02</span>Resultados em semanas, não em anos</h4><p>O tempo de terapia encurta porque a mudança acontece no cérebro, não só no entendimento.</p></div>
-      <div class="bcard"><h4><span class="bnum">03</span>Mudança que se sustenta</h4><p>O sintoma não é abafado: o cérebro ganha competência nova e o padrão antigo perde força.</p></div>
-      <div class="bcard"><h4><span class="bnum">04</span>Segurança para cobrar o que vale</h4><p>Resultado rápido e visível faz de cobrar mais uma consequência, não um desconforto.</p></div>
-      <div class="bcard"><h4><span class="bnum">05</span>Aplicável já no dia seguinte</h4><p>3 horas de aula, 33 exercícios prontos. Nada de esperar meses para usar.</p></div>
-      <div class="bcard"><h4><span class="bnum">06</span>Soma à sua abordagem</h4><p>Psicanálise, TCC, holística, ABA: <span class="np">exercícios de neuroplasticidade</span> é o "como" que impulsiona todas elas.</p></div>
-      <div class="bcard"><h4><span class="bnum">07</span>Transformação também em você</h4><p>Muitos terapeutas relatam dormir melhor, sentir menos ansiedade e recuperar a confiança aplicando em si mesmos.</p></div>
-      <div class="bcard"><h4><span class="bnum">08</span>Uma nova leitura das pessoas</h4><p>Você passa a enxergar a psique de um jeito que muda o consultório - e a sua vida fora dele.</p></div>
+  </div>
+</section>
+
+<!-- APRESENTAÇÃO DA VIRTOLOGIA -->
+<section style="padding-top:20px">
+  <div class="wrap narrow reveal">
+    <div class="card">
+      <div class="eyebrow">A abordagem por trás disso</div>
+      <div class="big" style="margin-top:6px">Essa abordagem se chama Virtologia.</div>
+      <p>A Virtologia une neurociência, psicologia profunda e desenvolvimento de virtudes para compreender o ser humano desde a raiz do seu funcionamento. Ela não utiliza os exercícios como técnicas isoladas. Antes de orientar uma prática, o terapeuta aprende a identificar:</p>
+      <ul class="b">
+        <li>qual defesa está sustentando o sintoma;</li>
+        <li>qual resposta primitiva está no comando;</li>
+        <li>qual virtude ainda não foi desenvolvida;</li>
+        <li>qual capacidade precisa ser fortalecida no córtex pré-frontal.</li>
+      </ul>
+      <div class="big">O exercício é a aplicação prática de uma nova compreensão sobre o cérebro e sobre o ser humano.</div>
     </div>
+  </div>
+</section>
+
+<!-- FAIXA: CONSCIÊNCIA PARA COMANDAR A PRÓPRIA VIDA -->
+<section class="quoteband">
+  <div class="wrap reveal">
+    <div class="qq">Quando o cérebro evolui, o paciente não apenas reduz o sofrimento. <span class="np">Ele ganha mais consciência para comandar a própria vida.</span></div>
   </div>
 </section>
 
 <!-- PROVA SOCIAL -->
 <section>
   <div class="wrap">
-    <div class="reveal" style="text-align:center;max-width:780px;margin:0 auto">
-      <div class="eyebrow" style="justify-content:center">Quem já aplicou</div>
-      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem)">Não é teoria nossa. É o que eles viram acontecer.</h2>
-      <p class="lead" style="margin-top:14px">O que terapeutas de abordagens diferentes começaram a perceber ao aplicar esses exercícios:</p>
+    <div class="reveal" style="text-align:center;max-width:840px;margin:0 auto">
+      <div class="eyebrow c">Quem já está aplicando</div>
+      <h2 class="q">O que muda quando o cérebro não fica parado entre uma sessão e outra?</h2>
+      <p class="lead">Profissionais de abordagens diferentes começaram a orientar exercícios para os pacientes desenvolverem o cérebro em casa. Nos relatos, eles passaram a reagir menos aos mesmos gatilhos, interromper padrões antigos e avançar em menos tempo de acompanhamento.</p>
+      <div class="big">A velocidade aumenta porque a transformação deixa de ocupar apenas o tempo da sessão.</div>
     </div>
-    <div class="tgrid reveal">
-      <div class="tcard"><div class="vid" data-id="zQtXvSPwbrc" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Não tem como não falar que é revolucionário. Depois que você conhece, não tem como não trabalhar com isso."</div><p class="ctx">Aplicando a <span class="np">neuroplasticidade</span> em si mesma, conseguiu suspender medicamentos psiquiátricos.</p><div><div class="who">Carina Guedes</div><div class="role">Neuropsicopedagoga · Psicanalista · Terapeuta ABA</div></div></div>
-      <div class="tcard"><div class="vid" data-id="Bwgt5aS-pN0" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"É libertador. Para consultório, foi uma revolução e tanto. É um super poder real."</div><p class="ctx">Trabalhou com psicanálise e TCC, <b>mas nunca teve resultados desse nível.</b> Um paciente de 70 anos teve alta psiquiátrica de 3 medicamentos fortíssimos.</p><div><div class="who">Fernanda Dias</div><div class="role">Psicóloga (TCC)</div></div></div>
-      <div class="tcard"><div class="vid" data-id="hudzgBN8LW4" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Mudou a minha vida e dos pacientes que chegam até mim."</div><p class="ctx">Sua paciente, após 20 anos de outras terapias, ainda repetia padrões mesmo sabendo deles. Aplicando a <span class="np">neuroplasticidade</span>, não os repete mais.</p><div><div class="who">Sheila Maciel</div><div class="role">Terapeuta holística</div></div></div>
-      <div class="tcard"><div class="vid" data-id="DwZJ1G2K07s" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Quando você vê, você já está agindo. Muito mais rápido e pontual do que outras terapias que eu já passei."</div><p class="ctx">A mudança aparece no comportamento, não só no discurso.</p><div><div class="who">Rosa Barros</div><div class="role">Psicóloga</div></div></div>
-      <div class="tcard"><div class="vid" data-id="VQEBDyu3FmA" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Me trouxe <b>mais segurança para cobrar um valor mais alto</b> nas sessões. Melhorou o pânico e a ansiedade da minha paciente em apenas <b>14 dias</b>."</div><p class="ctx">Resultado rápido que sustenta um novo posicionamento de valor.</p><div><div class="who">Dâmaris Sonsino</div><div class="role">Psicóloga</div></div></div>
-      <div class="tcard"><div class="vid" data-id="MyLxCiG6ipc" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Você trabalha com seu cérebro e de repente fala: 'caramba, eu não sinto mais isso'."</div><p class="ctx">A dor perde força sem precisar reabrir a ferida toda sessão.</p><div><div class="who">Helen Frazão</div><div class="role">Terapeuta holística</div></div></div>
-      <div class="tcard"><div class="vid" data-id="U4h-wxin8gs" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Ajuda a chegar no principal problema da pessoa de forma mais rápida do que outras abordagens. E os <b>resultados são mais rápidos</b>."</div><p class="ctx">Menos rodeio, mais direção clínica.</p><div><div class="who">João Leite</div><div class="role">Psicólogo clínico</div></div></div>
-      <div class="tcard"><div class="vid" data-id="xG1Nt5zF83U" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Quando você vai percebendo, vê que aquela não é mais a mesma pessoa que comecei a atender."</div><p class="ctx">A transformação fica visível ao longo do acompanhamento, até em quem tem <span class="np">Transtorno do Espectro Autista</span> nível 1.</p><div><div class="who">Di Ortega</div><div class="role">Psicóloga · especialista em autismo</div></div></div>
+    <div class="tgrid collapsed reveal" id="tgrid">
+      <div class="tcard"><div class="vid" data-id="zQtXvSPwbrc" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Não tem como não falar que é revolucionário. Depois que você conhece, não tem como não trabalhar com isso."</div><p class="ctx">Aplicando a <span class="np">neuroplasticidade</span> em si mesma, conseguiu suspender medicamentos psiquiátricos.</p><div><div class="who">Carina</div><div class="role">Neuropsicopedagoga · Psicanalista · Terapeuta ABA</div></div></div>
+      <div class="tcard"><div class="vid" data-id="WD7Zjkop8-o" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"É libertador. Para consultório, foi uma revolução e tanto."</div><p class="ctx">Trabalhou com psicanálise e TCC. Um paciente de 70 anos teve alta psiquiátrica de 3 medicamentos.</p><div><div class="who">Fernanda</div><div class="role">Psicóloga (TCC)</div></div></div>
+      <div class="tcard"><div class="vid" data-id="hudzgBN8LW4" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Mudou a minha vida e dos pacientes que chegam até mim."</div><p class="ctx">Paciente que, após 20 anos de outras terapias, ainda repetia padrões mesmo sabendo deles — e deixou de repetir.</p><div><div class="who">Sheila</div><div class="role">Terapeuta holística</div></div></div>
+      <div class="tcard"><div class="vid" data-id="3LKJZyZLKN4" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Quando você vê, você já está agindo. Muito mais rápido e pontual do que outras terapias."</div><p class="ctx">A mudança aparece no comportamento, não só no discurso.</p><div><div class="who">Rosa</div><div class="role">Psicóloga</div></div></div>
+      <div class="tcard more"><div class="vid" data-id="MyLxCiG6ipc" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Você trabalha com seu cérebro e de repente fala: 'caramba, eu não sinto mais isso'."</div><p class="ctx">A dor perde força sem precisar reabrir a ferida toda sessão.</p><div><div class="who">Helen</div><div class="role">Terapeuta holística</div></div></div>
+      <div class="tcard more"><div class="vid" data-id="8SwPa8b4eFE" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Quando você vai percebendo, vê que aquela não é mais a mesma pessoa que comecei a atender."</div><p class="ctx">A transformação fica visível ao longo do acompanhamento, até em quem tem Transtorno do Espectro Autista nível 1.</p><div><div class="who">Dinorá</div><div class="role">Psicóloga · especialista em autismo</div></div></div>
+      <div class="tcard more"><div class="vid" data-id="54-DFhfCKFo" onclick="playVid(this)"><span class="pbtn">▶</span></div><div class="quote">"Me trouxe mais segurança para cobrar um valor mais alto nas sessões. Melhorou o pânico e a ansiedade da minha paciente em apenas 14 dias."</div><p class="ctx">Resultado rápido que sustenta um novo posicionamento de valor.</p><div><div class="who">Dâmaris</div><div class="role">Psicóloga</div></div></div>
+    </div>
+    <div style="text-align:center"><button class="tmore" onclick="document.getElementById('tgrid').classList.remove('collapsed');this.style.display='none'">Ver mais relatos</button></div>
+  </div>
+</section>
+
+<!-- CTA REPETIDO -->
+<div class="wrap reveal" style="text-align:center;padding:6px 24px 0"><a href="#aulas" class="btn">Acessar aulas</a></div>
+
+<!-- O QUE VOCÊ VAI APRENDER + COMO ENTRA NA PRÁTICA / OFERTA -->
+<section id="aulas" style="padding-top:56px">
+  <div class="wrap">
+    <div class="reveal narrow" style="margin:0 auto;text-align:center">
+      <div class="eyebrow c">Como fazer o tratamento continuar fora da sessão</div>
+      <h2 class="q">O que você vai aprender</h2>
+      <p class="lead">Nas aulas, você aprende a identificar o que precisa ser desenvolvido no atendimento e a orientar a prática que desenvolve o cérebro do paciente. O processo tem quatro etapas:</p>
+    </div>
+    <div class="steps s4 reveal">
+      <div class="step2 hl"><div class="sl"><span class="sn">1</span> Identificar</div><p>a defesa que sustenta o sintoma.</p></div>
+      <div class="step2 hl"><div class="sl"><span class="sn">2</span> Escolher</div><p>a virtude que precisa ser desenvolvida.</p></div>
+      <div class="step2 hl"><div class="sl"><span class="sn">3</span> Orientar</div><p>o exercício de neuroplasticidade.</p></div>
+      <div class="step2 hl"><div class="sl"><span class="sn">4</span> Acompanhar</div><p>a mudança na sessão seguinte.</p></div>
+    </div>
+    <div class="reveal narrow" style="margin:26px auto 0">
+      <div class="big">Você não recebe apenas exercícios. <span class="np">Você aprende a identificar o que o cérebro do paciente precisa desenvolver.</span></div>
+    </div>
+
+    <div class="grid2 reveal">
+      <div class="card"><div class="big" style="font-size:1.4rem;margin:0 0 8px">3h de aulas profundas e objetivas</div><p class="small" style="margin:0">Para compreender o mecanismo e iniciar a aplicação clínica.</p></div>
+      <div class="card"><div class="big" style="font-size:1.4rem;margin:0 0 8px">33 exercícios de neuroplasticidade</div><p class="small" style="margin:0">Para desenvolver virtudes em você e orientar seus pacientes.</p></div>
+    </div>
+
+    <div class="offer reveal">
+      <div class="plan">
+        <div class="pname">Acesso às aulas</div>
+        <div class="price">R$97 <small>· pagamento único</small></div>
+        <ul>
+          <li><span class="ck">✦</span> 12 aulas (3 horas no total)</li>
+          <li><span class="ck">✦</span> 33 exercícios de <span class="np">neuroplasticidade</span></li>
+          <li><span class="ck">✦</span> Encontros ao vivo mensais no Zoom</li>
+          <li><span class="ck">✦</span> Acesso por 1 ano, liberado na hora</li>
+        </ul>
+        <a href="https://payfast.greenn.com.br/126503/offer/NEeBZf" class="btn ghost" onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Aulas',value:97,currency:'BRL'})">Acessar as aulas</a>
+      </div>
+      <div class="plan feat">
+        <div class="ribbon">Mais escolhido</div>
+        <div class="pname">Aulas + obra-base</div>
+        <div class="price">R$167 <small>· pagamento único</small></div>
+        <ul>
+          <li><span class="ck">✦</span> <b>Todo o acesso às aulas</b></li>
+          <li><span class="ck">✦</span> Livro digital <i>Fundamentos da Virtologia</i> em PDF</li>
+          <li><span class="ck">✦</span> Mais de 650 páginas com a base teórica e profunda de tudo o que você vai estudar… e muito mais.</li>
+          <li><span class="ck">✦</span> Para quem não quer apenas aplicar a neuroplasticidade — mas compreender a ciência inteira que existe por trás dela.</li>
+        </ul>
+        <a href="https://payfast.greenn.com.br/133930/offer/Q1k249" class="btn" onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Aulas + obra-base',value:167,currency:'BRL'})">Acessar aulas + obra-base</a>
+      </div>
+    </div>
+    <p class="micro" style="text-align:center">Pagamento único, sem mensalidade · Acesso por 1 ano</p>
+
+    <!-- GARANTIA -->
+    <div class="guar reveal">
+      <svg class="shield" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2fe6e0"></stop><stop offset="1" stop-color="#9a6bff"></stop></linearGradient></defs>
+        <path d="M50 6 L86 20 V48 C86 72 70 88 50 94 C30 88 14 72 14 48 V20 Z" fill="none" stroke="url(#g)" stroke-width="3"></path>
+        <path d="M34 50 L46 62 L68 38" fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <div>
+        <div class="eyebrow">Peça reembolso se não gostar</div>
+        <div class="big" style="font-size:1.4rem;margin:6px 0 10px">7 dias para conhecer tudo com calma.</div>
+        <p style="margin:0">Você assiste às aulas, conhece os 33 exercícios e, se concluir que não é para você, pede o reembolso dentro do prazo. Devolvemos 100%, sem burocracia. E vamos além: se você aplicar os exercícios e eles não ampliarem a eficácia do seu processo terapêutico, entre em contato — devolvemos todo o seu investimento.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- AUTORIDADE -->
 <section>
-  <div class="wrap two">
-    <div class="col-img reveal">
-      <div class="eduardo-photo">
-        <img src="eduardo.jpg" alt="Dr. Eduardo Casarotto no Senado Federal" onerror="this.remove()">
-        <span class="tag" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--mono);font-size:.72rem;color:#7f93b5;border:1px dashed rgba(127,147,181,.4);padding:9px 14px;border-radius:8px">[ eduardo.jpg ]</span>
-        <span class="eduardo-cap">Dr. Eduardo Casarotto · homenagem no Senado Federal</span>
+  <div class="wrap">
+    <div class="author reveal">
+      <div class="a-photo"><img src="eduardo.png" alt="Dr. Eduardo Casarotto, criador da Virtologia"></div>
+      <div class="a-head">
+        <div class="eyebrow">Quem está por trás</div>
+        <h2 class="q" style="font-size:clamp(1.7rem,4vw,2.6rem)">Dr. Eduardo Casarotto</h2>
       </div>
-    </div>
-    <div class="reveal">
-      <div class="eyebrow">Quem está por trás</div>
-      <h2 style="font-size:clamp(1.9rem,4vw,2.6rem)">Dr. Eduardo Casarotto</h2>
-      <p style="margin-top:18px">A <span class="np">neuroplasticidade</span> da Virtologia é aplicada por milhares de psicólogos, psicanalistas, terapeutas holísticos e psiquiatras. Também está em dezenas de penitenciárias e clínicas de reabilitação, e embasa estudos científicos conduzidos para o CGI, governo federal e estaduais.</p>
-      <div class="kicker">Um nome reconhecido institucionalmente.</div>
-      <p>Criador da Virtologia, recebeu o título de comendador cavaleiro e foi homenageado no Senado Federal por suas contribuições à saúde mental.</p>
-      <div class="authrow">
-        <div class="badge"><div class="b-n">+3.000</div><div class="b-t">terapeutas já formados</div></div>
-        <div class="badge"><div class="b-n">Senado</div><div class="b-t">homenagem por contribuição à saúde mental</div></div>
-        <div class="badge"><div class="b-n">CGI</div><div class="b-t">estudos para governos estaduais</div></div>
+      <div class="a-body">
+        <p>A neuroplasticidade da Virtologia é aplicada por milhares de psicólogos, psicanalistas, terapeutas integrativos e psiquiatras. Também está em dezenas de penitenciárias e clínicas de reabilitação, e embasa estudos científicos conduzidos para o governo.</p>
+        <div class="big">Um nome reconhecido institucionalmente.</div>
+        <p>Criador da Virtologia, recebeu o título de comendador cavaleiro e foi homenageado no Senado Federal por suas contribuições à saúde mental.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HISTÓRIA -->
+<!-- FAQ -->
 <section>
-  <div class="wrap">
-    <div class="reveal" style="text-align:center;max-width:620px;margin:0 auto 32px">
-      <div class="eyebrow" style="justify-content:center">Uma história, entre milhares</div>
-      <h2 style="font-size:clamp(1.6rem,3.4vw,2.2rem)">O caso que ela não esperava ver acontecer tão rápido</h2>
+  <div class="wrap narrow">
+    <div class="reveal" style="text-align:center;margin-bottom:26px">
+      <div class="eyebrow c">Antes de decidir</div>
+      <h2 class="q">Perguntas que um profissional sério faz</h2>
     </div>
-    <div class="story-card reveal">
-      <div class="s-img"><img src="beneficios.jpg" alt="Transformação" onerror="this.remove()"></div>
-      <div class="s-body">
-        <div class="s-quote">"É libertador. Para consultório, foi uma revolução e tanto."</div>
-        <p>Fernanda atendia com psicanálise e TCC havia anos. Até aplicar os exercícios de <span class="np">neuroplasticidade</span> num paciente de 70 anos, que tomava 3 medicamentos psiquiátricos fortíssimos.</p>
-        <p>O resultado foi uma alta psiquiátrica. Não foi mágica: foi o cérebro construindo, na prática, um caminho novo, daqueles que antes levariam anos, ou nunca chegariam.</p>
-        <div class="s-who">Fernanda Dias</div>
-        <div class="s-role">Psicóloga (TCC)</div>
-      </div>
+    <div class="qa reveal">
+      <details open><summary>Os exercícios são apenas tarefas de casa?</summary><div class="ans">Não. Uma tarefa comum pede que o paciente observe algo ou tente mudar um comportamento. Os exercícios das aulas combinam fala, escrita, visualização, reflexão, comportamento e repetição direcionada para desenvolver uma capacidade específica no cérebro.</div></details>
+      <details><summary>Qual a diferença entre entender o padrão e desenvolver uma estrutura no cérebro?</summary><div class="ans">Entender é reconhecer intelectualmente o que está acontecendo. Desenvolver uma estrutura é treinar repetidamente a capacidade cerebral necessária para agir de outro modo. O paciente pode saber que precisa controlar um impulso ou agir com responsabilidade e, ainda assim, não possuir força pré-frontal suficiente para colocar isso em prática.</div></details>
+      <details><summary>Vou apenas acrescentar exercícios à abordagem que já utilizo?</summary><div class="ans">Os exercícios podem ser integrados à sua atuação, mas as aulas apresentam algo maior: uma nova forma de compreender sintomas, transtornos, defesas, cérebro primitivo, virtudes e transformação humana. A prática é consequência dessa leitura, não uma técnica isolada.</div></details>
+      <details><summary>Isso substitui a fala, a escuta ou a análise?</summary><div class="ans">Não. A sessão continua sendo o espaço em que o profissional compreende o funcionamento, identifica a defesa e dá direção ao tratamento. A neuroplasticidade acrescenta o desenvolvimento que continua fora dela.</div></details>
+      <details><summary>Virtude não é um tema moral ou religioso?</summary><div class="ans">Não, aqui não. As virtudes são tratadas como capacidades neuropsicológicas do córtex pré-frontal — controle emocional, empatia, responsabilidade, aceitação, propósito. O trabalho é clínico e neurológico, não doutrinário.</div></details>
+      <details><summary>Funciona para TCC, psicanálise, psicologia analítica e terapias holísticas?</summary><div class="ans">Sim. Profissionais de linhas diferentes vêm aplicando os exercícios e integrando-os ao que já fazem. O mecanismo — fortalecer o córtex pré-frontal por neuroplasticidade — é transversal às abordagens.</div></details>
+      <details><summary>Preciso ser psicólogo?</summary><div class="ans">É voltado a psicólogos, psicanalistas, terapeutas, psiquiatras e profissionais do desenvolvimento humano. A linguagem é clara e estruturada, para você conduzir com segurança dentro da sua atuação.</div></details>
+      <details><summary>Por quanto tempo tenho acesso? Tem mensalidade?</summary><div class="ans">Pagamento único, sem mensalidade. Acesso por 1 ano, liberado na hora, com encontros ao vivo mensais no período.</div></details>
     </div>
-  </div>
-</section>
-
-<!-- OFERTA -->
-<section id="oferta">
-  <div class="wrap">
-    <div class="reveal" style="text-align:center;max-width:720px;margin:0 auto">
-      <div class="eyebrow" style="justify-content:center">Como acessar</div>
-      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem)">Como você acessa as aulas e exercícios</h2>
-      <p class="lead" style="margin-top:14px">Existem dois jeitos de entrar. Escolha o seu.</p>
-    </div>
-    <div class="offer reveal">
-      <div class="plan">
-        <div class="pname">Ingresso Simples</div>
-        <div class="price">R$97 <small>· pagamento único</small></div>
-        <ul>
-          <li><span class="ck">✦</span> 12 aulas (3 horas no total)</li>
-          <li><span class="ck">✦</span> 33 exercícios de <span class="np">neuroplasticidade</span> prontos</li>
-          <li><span class="ck">✦</span> Encontros ao vivo mensais no Zoom</li>
-          <li><span class="ck">✦</span> Acesso por 1 ano, liberado na hora</li>
-        </ul>
-        <a href="https://payfast.greenn.com.br/126503/offer/NEeBZf" class="btn ghost" onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Ingresso Simples',value:97,currency:'BRL'})">Quero o Ingresso Simples</a>
-      </div>
-      <div class="plan feat">
-        <div class="ribbon">Mais escolhido</div>
-        <div class="pname">Ingresso Premium</div>
-        <div class="price">R$167 <small>· pagamento único</small></div>
-        <ul>
-          <li><span class="ck">✦</span> <b>Tudo do Ingresso Simples</b></li>
-          <li><span class="ck">✦</span> Livro digital <i>Fundamentos da Virtologia</i> (ePUB e PDF)</li>
-          <li><span class="ck">✦</span> A base teórica completa, com mais de 650 páginas</li>
-          <li><span class="ck">✦</span> Leitura imediata, junto com as aulas</li>
-        </ul>
-        <a href="https://payfast.greenn.com.br/133930/offer/Q1k249" class="btn" onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Ingresso Premium',value:167,currency:'BRL'})">Quero o Ingresso Premium</a>
-      </div>
-    </div>
-    <p class="micro" style="text-align:center">Pagamento único, sem mensalidade · Acesso por 1 ano · <span style="color:#cfe9ff">Menos do que você cobra por uma única sessão</span></p>
-
-    <!-- LIVRO -->
-    <div class="bookrow reveal">
-      <div class="book-head">
-        <img class="bookcover" src="livro.png" alt="Livro Fundamentos da Virtologia"
-             onerror="this.outerHTML='<div class=&quot;bookcover-fallback&quot;><span>[ livro.png ]</span></div>'">
-        <div>
-          <div class="eyebrow">Incluso no Premium</div>
-          <h3>Fundamentos da Virtologia<span class="book-tag">LIVRO DIGITAL · ePUB e PDF</span></h3>
-        </div>
-      </div>
-      <p class="book-desc">Mais de 650 páginas com o aprofundamento de toda a parte teórica, além de técnicas e manejos terapêuticos, os 19 cálculos cerebrais e muito mais.</p>
-      <p class="muted" style="margin-top:12px">As aulas mostram o coração prático. O livro abre a matriz inteira por trás dela - o passo natural de quem percebe, logo nas primeiras aulas, que quer ir fundo.</p>
-    </div>
-  </div>
-</section>
-
-<!-- GARANTIA -->
-<section>
-  <div class="wrap">
-    <div class="guar reveal">
-      <svg class="shield" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2fe6e0"/><stop offset="1" stop-color="#9a6bff"/></linearGradient></defs>
-        <path d="M50 6 L86 20 V48 C86 72 70 88 50 94 C30 88 14 72 14 48 V20 Z" fill="none" stroke="url(#g)" stroke-width="3"/>
-        <path d="M34 50 L46 62 L68 38" fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div>
-        <div class="eyebrow">O risco é todo nosso</div>
-        <div class="kicker" style="margin-top:6px">7 dias para olhar tudo com calma.</div>
-        <p>Você entra, assiste às 12 aulas (apenas 3h de duração total, pois é bem direto ao ponto pra você conseguir aplicar corretamente). Você conhece os 33 exercícios. Se achar que não é para você, pede o reembolso dentro do prazo e devolvemos 100%. Sem perguntas, sem burocracia.</p>
-        <div class="kicker">E a gente vai além da garantia comum.</div>
-        <p>Se você utilizar esses exercícios e eles não aumentarem a eficácia do processo terapêutico que você oferece, independente dos 7 dias de garantia, entre em contato conosco e você receberá todo seu investimento de volta.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OBJEÇÕES + FAQ -->
-<section>
-  <div class="wrap">
-    <div class="reveal" style="max-width:760px;margin:0 auto 30px;text-align:center">
-      <div class="eyebrow" style="justify-content:center">Antes de decidir</div>
-      <h2 style="font-size:clamp(1.7rem,3.6vw,2.4rem)">As perguntas que provavelmente estão passando pela sua cabeça agora</h2>
-    </div>
-    <div class="qa reveal" style="max-width:820px;margin:0 auto">
-      <details open><summary>Isso tem base científica de verdade?</summary><div class="ans"><span class="np">Neuroplasticidade</span> é neurociência consolidada: a capacidade comprovada do cérebro de formar novos caminhos neurais. A Virtologia conduz estudos para o CGI e governos estaduais, e a abordagem já é aplicada em penitenciárias e clínicas de reabilitação. Não é abstrato: você consegue mostrar ao paciente, no concreto, que é o cérebro dele agindo.</div></details>
-      <details><summary>Será que eu vou conseguir aplicar?</summary><div class="ans">Sim. São 3 horas de aula e 33 exercícios prontos, numa linguagem simples e estruturada. Você assiste hoje e aplica amanhã.</div></details>
-      <details><summary>Preciso ser formado para usar?</summary><div class="ans">Não precisa ser psicólogo. É para psicólogos, psicanalistas, terapeutas, psiquiatras, nutricionistas e também para quem está começando agora a ajudar pessoas. A linguagem é simples e estruturada, pensada para qualquer um conseguir conduzir.</div></details>
-      <details><summary>Funciona mesmo?</summary><div class="ans">Mais de 3.000 terapeutas já se formaram, e os depoimentos acima são de profissionais de abordagens diferentes. E para tirar o risco das suas costas, a garantia é incondicional.</div></details>
-      <details><summary>Eu já tenho a minha abordagem. Vou ter que abandonar tudo?</summary><div class="ans">Não. A <span class="np">neuroplasticidade</span> soma à sua linha atual: ela é o "como" que faltava, não um substituto do que você já faz bem.</div></details>
-      <details><summary>Preciso entender a Virtologia inteira para usar?</summary><div class="ans">Não. A Virtologia é enorme. Aqui o foco é a parte prática, os exercícios e como aplicá-los. Você tem resultado sem precisar dominar toda a teoria primeiro.</div></details>
-      <details><summary>Serve para atender online e presencial?</summary><div class="ans">Sim. Os exercícios funcionam nos dois formatos.</div></details>
-      <details><summary>Qual a diferença entre Simples e Premium?</summary><div class="ans">Os dois dão as 12 aulas, os 33 exercícios e os encontros no Zoom. O Premium acrescenta o livro digital <i>Fundamentos da Virtologia</i> (ePUB e PDF), com mais de 650 páginas da base teórica.</div></details>
-      <details><summary>Por quanto tempo tenho acesso? Tem mensalidade?</summary><div class="ans">Pagamento único, sem mensalidade. Acesso por 1 ano, liberado na hora.</div></details>
-      <details><summary>E se eu nunca apliquei nada de <span class="np">neuroplasticidade</span> na vida?</summary><div class="ans">Tudo bem. As aulas partem do mecanismo e te levam até a aplicação, passo a passo.</div></details>
-    </div>
-    <p style="text-align:center;max-width:820px;margin:30px auto 0;color:#cdd9ef;font-size:1.05rem"><b style="color:#fff">Tem outras dúvidas?</b><br>Entre em contato conosco pelo WhatsApp <a href="https://wa.me/5564996428026" target="_blank" rel="noopener" style="color:var(--cyan);font-weight:600;text-decoration:underline">clicando aqui</a>.</p>
-  </div>
-</section>
-
-<!-- URGÊNCIA -->
-<section style="padding-top:20px">
-  <div class="wrap">
-    <div class="urg reveal" style="max-width:860px;margin:0 auto">
-      <div class="eyebrow">Por que começar agora, e não "depois"</div>
-      <div class="kicker">Aqui não tem contador falso. Tem uma conta simples.</div>
-      <p>Cada semana que passa é mais um período de sessões entregando resultado abaixo do que poderiam, e mais tempo cobrando aquém do que o seu trabalho já poderia valer.</p>
-      <div class="kicker">E tem um detalhe prático de calendário.</div>
-      <p>Os encontros ao vivo no Zoom acontecem todo mês. Quanto antes você entra, antes participa do próximo - e antes começa a aplicar com seus pacientes. O acesso é imediato.</p>
-    </div>
+    <p style="text-align:center;margin-top:28px;color:#cdd9ef">Outras dúvidas? Fale conosco pelo WhatsApp <a href="https://wa.me/5564996428026" target="_blank" rel="noopener" style="color:var(--cyan);font-weight:600;text-decoration:underline">clicando aqui</a>.</p>
   </div>
 </section>
 
 <!-- CTA FINAL -->
-<section class="final" style="padding-top:50px">
-  <div class="wrap">
-    <div class="final-card reveal">
-      <div class="eyebrow" style="justify-content:center">A decisão</div>
-      <p class="cta-quote">"É um super poder real." <b>- Fernanda Dias, Psicóloga</b></p>
-      <h2>A neurociência já fez a parte dela. Falta a sua.</h2>
-      <p class="lead" style="max-width:680px;margin:20px auto 0">Você pode continuar vendo o paciente entender tudo e mudar pouco, sessão após sessão. Ou, ainda esta semana, conhecer o mecanismo que terapeutas de toda abordagem chamam de "super poder real".</p>
-      <p style="max-width:620px;margin:18px auto 30px;font-family:var(--serif);font-style:normal;font-size:1.3rem;color:#dff6f5">Você vai aprender a usar o que a ciência já provou, ou vai deixar isso para os próximos pacientes?</p>
-      <a href="#oferta" class="btn" style="font-size:1.1rem;padding:19px 34px">Acessar exercícios + aulas</a>
-      <p class="micro">A partir de R$97 · Acesso imediato · Garantia de 7 dias</p>
-    </div>
-    <div class="ps reveal">
-      <p><b>P.S.</b> - Lembra do paciente que faz anos de terapia, sabe tudo sobre si mesmo, e ainda assim repete o mesmo padrão? Consciência nunca foi o problema. O que faltava era uma forma de desenvolver as estruturas cerebrais que produzem novos comportamentos. São 12 aulas (3 horas) + 33 exercícios prontos, para aplicar amanhã, com garantia incondicional de 7 dias e a nossa palavra de que é mais eficaz do que o que você usa hoje. O risco é nosso. <b>A escolha é sua.</b></p>
+<section class="final">
+  <div class="wrap narrow reveal">
+    <div class="final-card">
+      <div class="eyebrow c">A decisão</div>
+      <div class="big">A terapia pode ocupar uma hora da semana. <span class="np">A transformação não precisa.</span></div>
+      <p class="lead" style="max-width:680px;margin:20px auto 0">Seu paciente pode continuar sendo comandado pelos mesmos padrões — ou pode usar o tempo fora do consultório para desenvolver o cérebro que a transformação exige.</p>
+      <div style="margin-top:28px"><a href="#aulas" class="btn" style="font-size:1.1rem;padding:19px 34px">Acessar as aulas</a></div>
+      <p class="micro">3h de aulas · 33 exercícios · Encontros mensais ao vivo · 1 ano de acesso</p>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="brand">Virtologia<small>Neuroplasticidade Aplicada</small></div>
+    <div class="brand" style="display:inline-block;margin-bottom:10px">Virtologia<small>Neuroplasticidade Aplicada</small></div>
     <p>Instituto Virtudes · Dr. Eduardo Casarotto</p>
     <p style="margin-top:8px;font-size:.78rem;opacity:.7">© 2026 · Todos os direitos reservados</p>
   </div>
@@ -544,25 +605,29 @@ src="https://www.facebook.com/tr?id=386437925348155&ev=PageView&noscript=1"/></n
 <!-- STICKY CTA MOBILE -->
 <div class="sticky-cta">
   <div class="sc-price">a partir de<b>R$97</b></div>
-  <a href="#oferta" class="btn">Acessar exercícios + aulas</a>
+  <a href="#aulas" class="btn">Acessar as aulas</a>
 </div>
 
 <script>
 function playVid(el){
   if(el.classList.contains('on'))return;
-  var id=el.dataset.id;
-  el.classList.add('on');
+  var id=el.dataset.id;el.classList.add('on');
   var origin=encodeURIComponent(location.origin&&location.origin!=='null'?location.origin:'');
   el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1&origin='+origin+'" title="Depoimento" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
 }
-// lazy-load thumbnails as background
 document.querySelectorAll('.vid').forEach(function(v){
   v.style.backgroundImage="url(https://img.youtube.com/vi/"+v.dataset.id+"/hqdefault.jpg)";
 });
-// reveal on scroll
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+// indicador dos carrosséis (mobile)
+document.querySelectorAll('.car').forEach(function(c){
+  var ind=c.parentElement.querySelector('.cindic');if(!ind)return;
+  var n=c.querySelectorAll('img').length;
+  function u(){var i=Math.round(c.scrollLeft/c.clientWidth)+1;if(i<1)i=1;if(i>n)i=n;ind.textContent=i+' / '+n;}
+  c.addEventListener('scroll',function(){window.requestAnimationFrame(u);});u();
+});
+// reveal
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')})}
 </script>
-</body>
-</html>
+</body></html>
